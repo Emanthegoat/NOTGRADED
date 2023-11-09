@@ -1,14 +1,28 @@
 .main{
     text-align: center;
+    display: flex;
+    flex-direction: column;
+  
 
 }
 .grid-container{
     display: grid;
-    padding: 0;
-    margin: 0;
+    grid-template-columns:200px 200px 200px;
+    
+    
+
 }
 .grid-item{
-    border: 10px solid black;
-    height:20px;
-    width: 30px;
+    border: 5px solid black;
+    height: 200px;
+    width: 175px;
+    border-radius: 8px;
+    padding: 0 ;
+
 }
+.controls{
+    height: 100px;
+    width: 100px;
+    
+}
+
