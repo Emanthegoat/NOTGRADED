@@ -8,7 +8,7 @@
 display: block;
 }
 .grid-item{
-    border: 10px;
+    border: 10px solid;
     height:20px;
     width: 30px;
 }
