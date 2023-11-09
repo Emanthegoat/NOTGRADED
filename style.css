@@ -5,10 +5,17 @@
 }
 .main{
     text-align: center;
-
+display: block;
 }
 .grid-item{
     border: 10px;
     height:20px;
 width: 30px;
+}
+.controls{
+    box-sizing: border-box;
+    margin-left: auto;
+    border: solid 1px;
+    height: 20px;
+    border-radius: 5px;
 }
