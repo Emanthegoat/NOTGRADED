@@ -8,8 +8,7 @@
 .grid-container{
     display: grid;
     grid-template-columns:200px 200px 200px;
-    
-    
+   
 
 }
 .grid-item{
@@ -18,10 +17,24 @@
     width: 175px;
     border-radius: 8px;
     padding: 0 ;
+   
 
 }
 .controls{
-    height: 100px;
-    width: 100px;
+    font-size: 45px;
+    border: 1px ;
     
+    
+    
+}
+.reset{
+    font-size: 30px;
+    
+}
+.img{
+  background-image: url('https://i.pinimg.com/236x/dd/1d/4f/dd1d4fea0b3ddffe43cd884f0bdb82f0.jpg');  
+  background-size:  100% 100% ;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  
 }
