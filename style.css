@@ -1,14 +1,23 @@
+.main{
+    text-align: center;
+
+}
 .grid-container{
     display: grid;
     padding: 0;
     margin: 0;
 }
+<<<<<<< HEAD
 .main{
     text-align: center;
 display: block;
 }
 .grid-item{
     border: 10px solid;
+=======
+.grid-item{
+    border: 10px solid black;
+>>>>>>> d6936bdce0128eabcd78c9309f921d74ff5bdf94
     height:20px;
     width: 30px;
 }
