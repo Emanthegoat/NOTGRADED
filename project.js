@@ -15,5 +15,5 @@ const winningConditions = [
 
 let item = document.getElementsByClassName("grid-item")
 item.addEventListener("click", function add(){
-    alert("test";)
+    alert("test")
 })
