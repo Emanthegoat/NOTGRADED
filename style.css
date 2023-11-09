@@ -1,14 +1,14 @@
+.main{
+    text-align: center;
+
+}
 .grid-container{
     display: grid;
     padding: 0;
     margin: 0;
 }
-.main{
-    text-align: center;
-
-}
 .grid-item{
-    border: 10px;
+    border: 10px solid black;
     height:20px;
     width: 30px;
 }
