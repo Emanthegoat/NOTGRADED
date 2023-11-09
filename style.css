@@ -10,7 +10,7 @@ display: block;
 .grid-item{
     border: 10px;
     height:20px;
-width: 30px;
+    width: 30px;
 }
 .controls{
     box-sizing: border-box;
