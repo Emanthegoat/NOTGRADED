@@ -3,11 +3,10 @@
     padding: 0;
     margin: 0;
 }
-body{
+body
+{
     background-color: lightcyan;
     background-image: url(https://i.pinimg.com/236x/dd/1d/4f/dd1d4fea0b3ddffe43cd884f0bdb82f0.jpg);
-    /* background-repeat: no-repeat; */
-    /* background-size: cover; */
 }
 .content
 {
@@ -23,7 +22,8 @@ body{
     margin: 20px auto;
     font-size: 36pt;
 }
-.main{
+.main
+{
     text-align: center;
     display: flex;
     overflow: hidden;
@@ -78,14 +78,16 @@ body{
     display: inline-block;
     font-size: 12pt;
 }
-.grid-container{
+.grid-container
+{
     display: grid;
     grid-template-columns:200px 200px 200px;
     width: fit-content;
     margin: auto;
 
 }
-.grid-item{
+.grid-item
+{
     display: table;
     border: 5px solid black;
     height: 185px;
