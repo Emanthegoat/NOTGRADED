@@ -1,18 +1,52 @@
+body{
+    background-color: lightcyan;
+}
+.content
+{
+    margin: auto;
+    width: fit-content;
+    background-color: black;
+}
+.head
+{
+    color: white;
+}
 .main{
     text-align: center;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+}
+.player1Score, .player2Score, .TieCounter
+{
+    border: 3px solid black;
+    margin: 0px 10px;
+    background-color: white;
+}
+.player1Score h1, .player1Score p, .player2Score h1, .player2Score p, .TieCounter h1, .TieCounter p
+{
+    display: inline-block;
+    padding: 0px 10px;
+    font-size: 24pt;
 }
 .grid-container{
     display: grid;
     grid-template-columns:200px 200px 200px;
+    width: fit-content;
+    margin: auto;
+
 }
 .grid-item{
+    display: table;
     border: 5px solid black;
-    height: 200px;
+    height: 185px;
     width: 175px;
     border-radius: 8px;
-    padding: 0 ;
+    padding: 0px 10px ;
+    margin: auto;
+    border: 2px solid white;
+    font-size: 120pt;
+    text-align: center;
+    color: white;
 }
 .controls{
     height: 100px;
