@@ -1,4 +1,5 @@
 const takenPlaces = new Array()
+var gameOver = false;
  if(document.readyState == "loading") //Checks and makes sure that the document it loaded before we access the different parts of it
 {
     document.addEventListener("DOMContentLoaded", ready)
@@ -29,18 +30,27 @@ function ready() {
     const items = document.getElementsByClassName("grid-item");
     for (let i = 0; i < items.length; i++) {
         const button = items[i];
-        button.addEventListener("click", function(event) {
-            const itemPlace = parseInt(event.target.getAttribute('name'));
-            if (!checkPlace(itemPlace)) {
-                addTurn(event);
-            } else {
-                // Handle the case where the position is already taken
-                alert("Position already taken!");
-            }
-        });
+        button.addEventListener("click", handleGridItemClick);
     }
     const resetBtn = document.getElementsByClassName("reset")[0]
     resetBtn.addEventListener('click' , reset)
+}
+
+function handleGridItemClick(event) 
+{
+    if (!gameOver) {
+        const itemPlace = parseInt(event.target.getAttribute('name'));
+        if (!checkPlace(itemPlace)) {
+            addTurn(event);
+        } else {
+            // Handle the case where the position is already taken
+            alert("Position already taken!");
+        }
+    } 
+    if(gameOver === true) {
+        // Game is over, further moves are disabled
+        alert("Game over. Please reset the game.");
+    }
 }
 
 function checkPlace(position) {
@@ -50,12 +60,6 @@ function checkPlace(position) {
 function addTurn(x)
 {
     prevWinner = activePlayer;
-    console.log(activePlayer)
-    console.log(takenPlaces)
-    console.log(Xpos)
-    console.log(Opos)
-    console.log("Before pos function is run")
-    // pos(x);
     let item = x.srcElement
     item.innerText = activePlayer
     setTimeout(() => {if (activePlayer === 'X') 
@@ -69,16 +73,15 @@ function addTurn(x)
             let appendScorePos = document.getElementsByClassName("player1Score")[0]
             let p = appendScorePos.getElementsByTagName("p")[0]
             p.innerText = playerXScore
-            reset()
-            
-        } else if (checkTie()) {
+        } 
+        else if (checkTie()) 
+        {
             // Game ends in a tie
             alert("It's a tie!");
             TieCounter += 1
             let appendScorePos = document.getElementsByClassName("TieCounter")[0]
             let p = appendScorePos.getElementsByTagName("p")[0]
             p.innerText = TieCounter
-            reset()
         }
     } 
     else if (activePlayer === 'O') 
@@ -92,7 +95,6 @@ function addTurn(x)
             let appendScorePos = document.getElementsByClassName("player2Score")[0]
             let p = appendScorePos.getElementsByTagName("p")[0]
             p.innerText = playerOScore
-            reset()
         } else if (checkTie()) {
             // Game ends in a tie
             alert("It's a tie!");
@@ -100,10 +102,18 @@ function addTurn(x)
             let appendScorePos = document.getElementsByClassName("TieCounter")[0]
             let p = appendScorePos.getElementsByTagName("p")[0]
             p.innerText = TieCounter
-            reset()
+             
         }
+    }
+    if (checkWin(Xpos) || checkWin(Opos) || checkTie()) {
+        // Player wins or tie, disable further moves
+        // removeClickEvents();
+        gameOver = true;
     }}, 100);
-    setTimeout(() => {activePlayer = Swap()}, 100);
+    setTimeout(() => {activePlayer = Swap()
+        let activePlayerText = document.getElementsByClassName("activePlayer")[0]
+        let letter = activePlayerText.getElementsByTagName('h5')[0]
+        letter.innerText = activePlayer;}, 100);
 }
 
 function Swap()
@@ -132,10 +142,38 @@ function pos(x, y) {
     }
 }
 function checkWin(playerPositions) {
+    let prevWinPos = new Array()
     return winningConditions.some(condition => {
-        return condition.every(pos => playerPositions.includes(pos.toString()));
+        if (condition.every(pos => playerPositions.includes(pos.toString()))) {
+            prevWinPos = condition.slice(); // Copy the winning condition to prevWinPos
+            console.log(prevWinPos)
+            updateWinningStyles(prevWinPos)
+            return true; // Return true to indicate a win
+        }
+        console.log("dasdas")
+        return false;
     });
+
+    return prevWinPos;
+    
 }
+
+function updateWinningStyles(prevWinPos) {
+    const gridItems = document.getElementsByClassName("grid-item");
+
+    for (let i = 0; i < gridItems.length; i++) {
+        const item = gridItems[i];
+        const itemName = item.getAttribute("name");
+
+        if (prevWinPos.includes(Number(itemName))) {
+            item.classList.add("winning-item"); // Add a class for winning items
+        } else {
+            item.classList.remove("winning-item"); // Remove the class for non-winning items
+        }
+    }
+}
+
+
 function checkTie() {
     return takenPlaces.length === 9; // If all positions are taken and there's no winner
 }
@@ -150,8 +188,10 @@ function reset()
      const gridItems = document.getElementsByClassName("grid-item");
      for (let i = 0; i < gridItems.length; i++) {
          gridItems[i].innerText = ''; // Clear the marks on the board
+         gridItems[i].classList.remove("winning-item")
      }
- 
+     
      // Reset activePlayer to the prevWinner
      activePlayer = prevWinner;
+     gameOver = false;
 }
