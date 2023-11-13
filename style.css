@@ -1,135 +1,84 @@
-*
-{
-    padding: 0;
-    margin: 0;
-}
-body
-{
-    background-color: lightcyan;
-    background-image: url(https://i.pinimg.com/236x/dd/1d/4f/dd1d4fea0b3ddffe43cd884f0bdb82f0.jpg);
-}
-.content
-{
-    margin: auto;
-    width: 630px;
-    background-color: black;
-    height: fit-content;
-}
-.head
-{
-    color: white;
-    width: fit-content;
-    margin: 20px auto;
-    font-size: 36pt;
-}
-.main
-{
-    text-align: center;
-    display: flex;
-    overflow: hidden;
-}
-.player1Score, .player2Score
-{
-    width: fit-content;
-    padding: 20px 10px;
-}
-.player1Score, .player2Score, .TieCounter
-{
-    border: 3px solid black;
-    margin: 0px 10px;
-    background-color: white;
-}
-.TieCounter
-{
-    height: fit-content;
-    width: fit-content;
-    margin: 20px auto;
-    padding: 20px 20px;
-}
-.player1Score h1, .player1Score p, .player2Score h1, .player2Score p
-{
-    display: inline-block;
-    padding: 0px 10px;
-    font-size: 24pt;
-}
-.TieCounter h1, .TieCounter p
-{
-    font-size: 24pt;
-    display: inline-block;
-}
-.player1Score p, .player2Score p
-{
-    font-size: 30pt;
-    font-weight: bolder;
-}
-.TieCounter p
-{
-    font-weight: bold;
-}
-.activePlayer
-{
-    background-color: white;
-    width: fit-content;
-    margin: 10px auto;
-    padding: 5px;
-}
-.activePlayer h4, .activePlayer h5
-{
-    display: inline-block;
-    font-size: 12pt;
-}
-.grid-container
-{
-    display: grid;
-    grid-template-columns:200px 200px 200px;
-    width: fit-content;
-    margin: auto;
 
+.is-elevated {
+    -moz-filter: drop-shadow(0px 0px 20px #000);
+    -webkit-filter: drop-shadow(0px 0px 20px #000);
+    -o-filter: drop-shadow(0px 0px 20px #000);
+    filter: drop-shadow(0px 0px 20px #000);            
 }
-.grid-item
-{
-    display: table;
-    border: 5px solid black;
-    height: 185px;
-    width: 175px;
-    border-radius: 8px;
-    padding: 0px 10px ;
-    margin: auto;
-    border: 2px solid white;
-    font-size: 120pt;
+
+.app-footer a:hover {
+    border-bottom: 1px black;
+}
+
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 25px;
+    height: 0;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.center {
     text-align: center;
-    color: white;
 }
-.grid-item:hover
-{
-    background-color: rgb(42, 42, 42);
+
+
+
+
+
+html {
+    background-color: #363636;
 }
-.winning-item
-{
-    background-color: lightgray;
-    color: black;
+
+body {
+    min-height: 100%;
+    background-image: linear-gradient(135deg, #7468E6, #C44B85);
+    background-attachment: fixed;
+    color: #FFFFFF;
+    text-align: center;
 }
-.controls
-{
-    height: fit-content;
-    width: fit-content;
-    font-size: 45px;
-    margin: 10px auto; 
-    padding-bottom: 10px;
+
+.app-title {
+    font-size: 5rem;
+    font-weight: 600;						
 }
-.reset
-{
-    font-size: 30px;
-    margin: auto;
-    padding: 10px 20px;
-    background-color: rgb(42, 42, 42);
-    color: rgb(201, 201, 201);
-    border: 2px ; 
-    border-style: ridge;
-    border-color: rgb(126, 126, 126);
+
+.app-subtitle {
+    font-size: 2rem;
 }
-.reset:hover
-{
-    background-color: rgb(72, 72, 72);
-    border-color: rgb(175, 175, 175);
+
+.social-buttons > .button {
+    margin-bottom: 12px;
+}
+
+.website-content {
+    font-size: 1.5rem;
+}
+
+.website-content a:hover {
+    border-bottom: 1px #FFFFFF dashed;
+}
+
+@media  only screen and (min-width: 768px) {
+    .app-container {
+        padding: 70px 50px 40px 50px;
+    }
+
+    .is-two-thirds {
+        padding-right: 50px;
+    }
+}
+
+@media  only screen and (max-width: 768px) {
+    .app-container {
+        padding: 20px;
+    }
 }
